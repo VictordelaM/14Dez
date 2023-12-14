@@ -6,10 +6,13 @@ function sub() {
     let atIndex = kette.indexOf(trennung)
     let davor = document.getElementById("radioVorn")
     let danach = document.getElementById("radioHinter")
-    let vorn = (anfang, ende) =>{return kette.slice(anfang, ende)}
+    let vorn = (anfang, ende) => {return kette.slice(anfang, ende)}
     let hinten = (anfang, ende) => {return kette.slice(anfang, ende)}
-    if (davor.checked) {
-        console.log("check")
+    if (kette.includes(trennung) === false){
+        outputVorn.textContent = "Wo soll ich jetzt trennen?!"
+        outputHinten.textContent = "alle sagen du bist dumm"
+    }
+    else if (davor.checked) {
         outputVorn.textContent = vorn(0, atIndex) 
         outputHinten.textContent = hinten(atIndex)
     }else if(danach.checked) {
